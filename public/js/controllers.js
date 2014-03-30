@@ -15,7 +15,7 @@ define(['angular','angular-route','services'],function(angular){
 
                 $scope.setImage = function(imageUrl) {
                     $scope.mainImageUrl = imageUrl;
-                }
+                };
             }]);
 });
 

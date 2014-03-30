@@ -92,12 +92,13 @@ module.exports = function(grunt) {
                 expr: true, // Allowed for chais expect(false).to.be.false; assertion style.
                 devel: false, // Prohibits console.log's etc
                 trailing: true, // Prohibits trailing whitespace
+                globalstrict: true, // make use strict ok
 
                 globals: {
                     require: true,
+                    module: true,
                     define: true,
                     requirejs: true,
-
                     jasmine: true,
                     describe: true,
                     it: true,
@@ -109,21 +110,22 @@ module.exports = function(grunt) {
                     setFixtures: true,
                     loadFixtures: true,
                     spyOn: true,
-
-                    doLMSSetValue: true,
-                    doLMSGetValue: true,
-                    doLMSInitialize: true,
-                    doLMSCommit: true,
-                    doLMSFinish: true,
-                    doLMSGetDiagnostic: true,
-                    doLMSGetLastError: true,
-
-                    Config: true
+                    Config: true,
+                    process:true,
+                    exports:true,
+                    inject:true,
+                    browser:true,
+                    repeater:true,
+                    angular:true,
+                    input:true,
+                    select:true,
+                    element:true,
+                    binding:true
                 }
             },
 
             //use default configure for production
-            product: ['src/*.js', 'src/!(lib)/*.js', 'test/*.js', 'test/spec/*.js'],
+            product: ['routes/*.js', 'public/js/*.js', 'test/unit/*.js', 'test/e2e/*.js'],
 
             //override some options in development environment
             devel: {
@@ -131,7 +133,7 @@ module.exports = function(grunt) {
                     devel: true
                 },
                 files: {
-                    src: ['*.js', 'src/*.js', 'src/!(lib)/*.js', 'test/*.js', 'test/spec/*.js']
+                    src: ['routes/*.js', 'public/js/*.js', 'test/unit/*.js', 'test/e2e/*.js']
                 }
             }
         },

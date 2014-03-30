@@ -6,7 +6,7 @@ define(['angular', 'jquery', 'angular-animate'],function(angular, $){
     return angular.module('phonecatAnimations', ['ngAnimate']).animation('.phone', function() {
 
         var animateUp = function(element, className, done) {
-            if(className != 'active') {
+            if(className !== 'active') {
                 return;
             }
             element.css({
@@ -25,10 +25,10 @@ define(['angular', 'jquery', 'angular-animate'],function(angular, $){
                     element.stop();
                 }
             };
-        }
+        };
 
         var animateDown = function(element, className, done) {
-            if(className != 'active') {
+            if(className !== 'active') {
                 return;
             }
             element.css({
@@ -46,7 +46,7 @@ define(['angular', 'jquery', 'angular-animate'],function(angular, $){
                     element.stop();
                 }
             };
-        }
+        };
 
         return {
             addClass: animateUp,
