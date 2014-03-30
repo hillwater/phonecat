@@ -1,37 +1,44 @@
 module.exports = function(config){
-  config.set({
-    basePath : '../',
+    config.set({
+        basePath : '../',
 
-    files : [
-      'app/lib/angular/angular.js',
-      'app/lib/angular/angular-*.js',
-      'app/js/**/*.js',
-      'test/unit/**/*.js'
-    ],
+        files : [
+            // all the sources, tests
+            {pattern: 'public/lib/angular/angular.js', included: false},
+            {pattern: 'public/lib/angular-*/angular-*.js', included: false},
+            {pattern: 'public/lib/jquery/jquery.js', included: false},
+            {pattern: 'public/js/**/*.js', included: false},
+            {pattern: 'test/unit/**/*.js', included: false},
 
-    exclude : [
-      'app/lib/angular/angular-loader.js',
-      'app/lib/angular/*.min.js',
-      'app/lib/angular/angular-scenario.js'
-    ],
+            'test/test-main.js'
+        ],
 
-    autoWatch : true,
+        exclude : [
+            'public/lib/angular-loader/angular-loader.js',
+            'public/lib/angular-scenario/angular-scenario.js',
+            'public/lib/angular-*/*.min.js',
+            'public/js/main.js'
+        ],
 
-    frameworks: ['jasmine'],
+        autoWatch : true,
 
-    browsers : ['Chrome'],
+        frameworks: ['jasmine','requirejs'],
 
-    plugins : [
+        browsers : ['PhantomJS'],
+
+        plugins : [
             'karma-junit-reporter',
             'karma-chrome-launcher',
             'karma-firefox-launcher',
+            'karma-phantomjs-launcher',
             'karma-script-launcher',
-            'karma-jasmine'
-            ],
+            'karma-jasmine',
+            'karma-requirejs'
+        ],
 
-    junitReporter : {
-      outputFile: 'test_out/unit.xml',
-      suite: 'unit'
-    }
-  });
+        junitReporter : {
+            outputFile: 'test_out/unit.xml',
+            suite: 'unit'
+        }
+    });
 };

@@ -213,6 +213,15 @@ module.exports = function(grunt) {
             }
         },
 
+        karma:{
+            unit: {
+                configFile: 'config/karma.conf.js'
+            },
+            e2e:{
+                configFile: 'config/karma-e2e.conf.js'
+            }
+        },
+
         //for instrument js source
         blanket: {
             options: {},
@@ -231,6 +240,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-testem');
+    grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-blanket');
 
     grunt.registerTask('prepare-test', 'Prepare test files', function() {

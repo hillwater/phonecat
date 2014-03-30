@@ -6,18 +6,13 @@ require.config({
         'angular': '../lib/angular/angular',
         'angular-animate': '../lib/angular-animate/angular-animate',
         'angular-resource': '../lib/angular-resource/angular-resource',
-        'angular-route': '../lib/angular-route/angular-route',
-        'angular-mocks': '../lib/angular-mocks/angular-mocks'
+        'angular-route': '../lib/angular-route/angular-route'
     },
     shim: {
         'angular': {'exports': 'angular'},
         'angular-animate': ['angular'],
         'angular-resource': ['angular'],
-        'angular-route': ['angular'],
-        'angular-mocks': {
-            deps:['angular'],
-            'exports':'angular-mocks'
-        }
+        'angular-route': ['angular']
     }
 });
 

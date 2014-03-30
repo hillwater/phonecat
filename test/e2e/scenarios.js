@@ -4,8 +4,8 @@
 
 describe('PhoneCat App', function() {
 
-  it('should redirect index.html to index.html#/phones', function() {
-    browser().navigateTo('app/index.html');
+  it('should redirect / to /#/phones', function() {
+    browser().navigateTo('/');
     expect(browser().location().url()).toBe('/phones');
   });
 
@@ -13,7 +13,7 @@ describe('PhoneCat App', function() {
   describe('Phone list view', function() {
 
     beforeEach(function() {
-      browser().navigateTo('app/index.html#/phones');
+      browser().navigateTo('/#/phones');
     });
 
 
@@ -54,7 +54,7 @@ describe('PhoneCat App', function() {
   describe('Phone detail view', function() {
 
     beforeEach(function() {
-      browser().navigateTo('app/index.html#/phones/nexus-s');
+      browser().navigateTo('/#/phones/nexus-s');
     });
 
 
