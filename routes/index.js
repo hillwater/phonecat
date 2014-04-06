@@ -4,11 +4,26 @@
  * GET home page.
  */
 
+var ua      = require('mobile-agent');
+
 exports.index = function(req, res){
-  res.render('index');
+    var agent = ua(req.headers['user-agent'])
+
+    if(agent.Mobile === true) {
+        res.render('mobile/index');
+    } else {
+        res.render('index');
+    }
 };
 
 exports.partials = function (req, res) {
-  var name = req.params.name;
-  res.render('partials/' + name);
+    var name = req.params.name;
+    var agent = ua(req.headers['user-agent'])
+
+    if(agent.Mobile === true) {
+        res.render('mobile/partials/' + name);
+    } else {
+        res.render('partials/' + name);
+    }
+
 };

@@ -2,8 +2,9 @@
 
 /* App Module */
 
-define(['angular','angular-route','animations','controllers','filters','services'],function(angular){
+define(['angular','angular-gestures','angular-route','animations','controllers','filters','services'],function(angular){
     return angular.module('phonecatApp', [
+        'angular-gestures',
         'ngRoute',
         'phonecatAnimations',
         'phonecatControllers',
@@ -19,6 +20,10 @@ define(['angular','angular-route','animations','controllers','filters','services
                 when('/phones/:phoneId', {
                     templateUrl: '/partials/phone-detail',
                     controller: 'PhoneDetailCtrl'
+                }).
+                when('/phones/preview/:phoneId/:imgIdx', {
+                    templateUrl: '/partials/phone-preview',
+                    controller: 'PhonePreviewCtrl'
                 }).
                 otherwise({
                     redirectTo: '/phones'

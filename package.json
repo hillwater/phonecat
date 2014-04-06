@@ -24,6 +24,7 @@
         "bower-checker": "0.0.1",
         "express": "3.2.6",
         "jade": ">= 0.0.1",
+        "mobile-agent": "0.0.8",
         "grunt": "0.4.x",
         "grunt-contrib-clean": "0.4.x",
         "grunt-contrib-requirejs": "0.4.x",

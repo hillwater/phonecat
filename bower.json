@@ -4,7 +4,8 @@
         "requirejs": "2.1.5",
         "angular": "1.2.x",
         "bootstrap": "3.x.x",
-        "jquery": "1.9.1"
+        "jquery": "1.9.1",
+        "topcoat":"0.8.x"
     },
     "devDependencies": {
         "almond": "0.2.1",
@@ -14,6 +15,7 @@
         "angular-loader": "~1.2.10",
         "angular-resource": "~1.2.10",
         "angular-touch": "~1.2.10",
+        "angular-gestures": "latest",
         "angular-i18n": "~1.2.10",
         "angular-mocks": "~1.2.10",
         "angular-motion": "~0.3.1",

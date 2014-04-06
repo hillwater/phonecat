@@ -6,13 +6,17 @@ require.config({
         'angular': '../lib/angular/angular',
         'angular-animate': '../lib/angular-animate/angular-animate',
         'angular-resource': '../lib/angular-resource/angular-resource',
-        'angular-route': '../lib/angular-route/angular-route'
+        'angular-route': '../lib/angular-route/angular-route',
+        'angular-touch': '../lib/angular-touch/angular-touch',
+        'angular-gestures': '../lib/angular-gestures/gestures'
     },
     shim: {
         'angular': {'exports': 'angular'},
         'angular-animate': ['angular'],
         'angular-resource': ['angular'],
-        'angular-route': ['angular']
+        'angular-route': ['angular'],
+        'angular-touch': ['angular'],
+        'angular-gestures':['angular']
     }
 });
 

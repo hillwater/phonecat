@@ -1,0 +1,2 @@
+.phone-preview-images
+    img.phone(ng-src='{{img}}', ng-repeat='img in phone.images', hm-swipe-right="nextSlide()", hm-swipe-left="prevSlide()", hm-pinch="pinch($event)", hm-drag="drag($event)", ng-class='{active: mainImageUrl==img}')

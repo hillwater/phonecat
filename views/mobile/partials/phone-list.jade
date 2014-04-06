@@ -1,0 +1,14 @@
+.topcoat-navigation-bar
+    .topcoat-navigation-bar__item.center.full
+        h1.topcoat-navigation-bar__title Google Phone Gallery
+
+.search-bar
+    input.topcoat-search-input.search-key(ng-model="query", type="search", placeholder="search")
+
+.topcoat-list__container.scroller
+    ul.phones.topcoat-list.list
+        li.topcoat-list__item.thumbnail.phone-listing(ng-repeat='phone in phones | filter:query | orderBy:orderProp')
+            a.thumb(href='#/phones/{{phone.id}}')
+                img(ng-src='{{phone.imageUrl}}')
+            a(href='#/phones/{{phone.id}}') {{phone.name}}
+            p {{phone.snippet}}
