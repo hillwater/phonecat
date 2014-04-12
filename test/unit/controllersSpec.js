@@ -69,6 +69,105 @@ define(['angular','angular-mocks','app','controllers'],function(angular){
                 $httpBackend.flush();
 
                 expect(scope.phone).toEqualData(xyzPhoneData());
+                expect(scope.mainImageUrl).toEqualData(xyzPhoneData().images[0]);
+            });
+
+            it('should set phone image', function() {
+                scope.setImage('image_url');
+                expect(scope.mainImageUrl).toEqualData('image_url');
+            });
+        });
+
+        describe('PhonePreviewCtrl', function(){
+            var scope, $httpBackend, $routeParams,ctrl,
+                xyzPhoneData = function() {
+                    return {
+                        name: 'phone xyz',
+                        images: ['image/url1.png', 'image/url2.png']
+                    };
+                };
+
+            var mockEvent = {
+                target: angular.element('<div>hello</div>'),
+                gesture: {
+                    scale:1,
+                    deltaX:1,
+                    deltaY:1,
+                    preventDefault:function(){}
+                }
+            };
+
+
+            beforeEach(inject(function(_$httpBackend_, $rootScope, _$routeParams_, $controller) {
+                $httpBackend = _$httpBackend_;
+                $httpBackend.expectGET('phones/xyz.json').respond(xyzPhoneData());
+
+                $routeParams = _$routeParams_;
+                $routeParams.phoneId = 'xyz';
+                scope = $rootScope.$new();
+                ctrl = $controller('PhonePreviewCtrl', {$scope: scope});
+            }));
+
+
+            it('should fetch phone detail', function() {
+                $routeParams.imgIdx = 0;
+                expect(scope.phone).toEqualData({});
+                $httpBackend.flush();
+
+                expect(scope.phone).toEqualData(xyzPhoneData());
+                expect(scope.mainImageUrl).toEqualData(xyzPhoneData().images[0]);
+            });
+
+            it('should change phone image', function() {
+                $routeParams.imgIdx = 1;
+                expect(scope.phone).toEqualData({});
+                $httpBackend.flush();
+
+                expect(scope.phone).toEqualData(xyzPhoneData());
+                expect(scope.mainImageUrl).toEqualData(xyzPhoneData().images[1]);
+            });
+
+            it('should go to previous image', function() {
+                $routeParams.imgIdx = 1;
+                $httpBackend.flush();
+
+                scope.prevSlide();
+                expect(scope.mainImageUrl).toEqualData(xyzPhoneData().images[0]);
+            });
+
+            it('should go to next image', function() {
+                $routeParams.imgIdx = 0;
+                $httpBackend.flush();
+
+                scope.nextSlide();
+                expect(scope.mainImageUrl).toEqualData(xyzPhoneData().images[1]);
+            });
+
+            it('should go with circle order', function() {
+                $routeParams.imgIdx = 0;
+                $httpBackend.flush();
+
+                scope.prevSlide();
+                expect(scope.mainImageUrl).toEqualData(xyzPhoneData().images[1]);
+
+                scope.nextSlide();
+                expect(scope.mainImageUrl).toEqualData(xyzPhoneData().images[0]);
+            });
+
+            it('should on the same image when do pinch', function() {
+                $routeParams.imgIdx = 0;
+                $httpBackend.flush();
+
+                scope.pinch(mockEvent);
+                expect(scope.mainImageUrl).toEqualData(xyzPhoneData().images[0]);
+            });
+
+            it('should on the same image when do drag', function() {
+                $routeParams.imgIdx = 0;
+                $httpBackend.flush();
+
+                scope.drag(mockEvent);
+                expect(scope.mainImageUrl).toEqualData(xyzPhoneData().images[0]);
             });
         });
     });

@@ -6,6 +6,7 @@ module.exports = function(config){
             // all the sources, tests
             {pattern: 'public/lib/angular/angular.js', included: false},
             {pattern: 'public/lib/angular-*/angular-*.js', included: false},
+            {pattern: 'public/lib/angular-gestures/gestures.js', included: false},
             {pattern: 'public/lib/jquery/jquery.js', included: false},
             {pattern: 'public/js/**/*.js', included: false},
             {pattern: 'test/unit/**/*.js', included: false},
@@ -33,8 +34,21 @@ module.exports = function(config){
             'karma-phantomjs-launcher',
             'karma-script-launcher',
             'karma-jasmine',
+            'karma-coverage',
             'karma-requirejs'
         ],
+
+        reporters:['progress','coverage'],
+
+        preprocessors: {
+            'public/js/**/*.js': 'coverage'
+        },
+
+        coverageReporter: {
+            type : 'html',
+            dir : 'coverage/'
+        },
+
 
         junitReporter : {
             outputFile: 'test_out/unit.xml',

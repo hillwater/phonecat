@@ -19,6 +19,7 @@ requirejs.config({
         'angular-animate': '../lib/angular-animate/angular-animate',
         'angular-resource': '../lib/angular-resource/angular-resource',
         'angular-route': '../lib/angular-route/angular-route',
+        'angular-gestures': '../lib/angular-gestures/gestures',
         'angular-mocks': '../lib/angular-mocks/angular-mocks'
     },
     shim: {
@@ -26,6 +27,7 @@ requirejs.config({
         'angular-animate': ['angular'],
         'angular-resource': ['angular'],
         'angular-route': ['angular'],
+        'angular-gestures': ['angular'],
         'angular-mocks': {
             deps:['angular'],
             'exports':'angular-mocks'

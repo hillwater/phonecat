@@ -3,3 +3,5 @@ node_modules
 public/lib
 views/*.html
 views/**/*.html
+coverage
+test_out

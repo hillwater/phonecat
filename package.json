@@ -21,6 +21,7 @@
         "karma-coffee-preprocessor": "~0.1.0",
         "karma-phantomjs-launcher": "~0.1.0",
         "karma-script-launcher": "~0.1.0",
+		"karma-coverage":"0.2.x",
         "bower-checker": "0.0.1",
         "express": "3.2.6",
         "jade": ">= 0.0.1",
