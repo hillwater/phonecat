@@ -37,6 +37,6 @@
         "grunt-blanket": "0.0.8"
     },
     "scripts": {
-        "postinstall": "./node_modules/bower/bin/bower install"
+        "postinstall": "bower install"
     }
 }
