@@ -35,5 +35,8 @@
         "grunt-testem": "0.3.2",
         "grunt-karma": "0.8.x",
         "grunt-blanket": "0.0.8"
+    },
+    "scripts": {
+        "postinstall": "./node_modules/bower/bin/bower install"
     }
 }
